@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SweetViz | Sharan’s Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="SweetViz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Personal blog with focus on ML, DL and data science." />
+<meta property="og:description" content="Personal blog with focus on ML, DL and data science." />
+<link rel="canonical" href="https://sharanbabu19.github.io/sharan19/2020/09/19/SweetViz-Automated-EDA.html" />
+<meta property="og:url" content="https://sharanbabu19.github.io/sharan19/2020/09/19/SweetViz-Automated-EDA.html" />
+<meta property="og:site_name" content="Sharan’s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://sharanbabu19.github.io/sharan19/2020/09/19/SweetViz-Automated-EDA.html","@type":"BlogPosting","headline":"SweetViz","dateModified":"2020-09-19T00:00:00-05:00","datePublished":"2020-09-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sharanbabu19.github.io/sharan19/2020/09/19/SweetViz-Automated-EDA.html"},"description":"Personal blog with focus on ML, DL and data science.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/sharan19/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sharanbabu19.github.io/sharan19/feed.xml" title="Sharan's Blog" /><link rel="shortcut icon" type="image/x-icon" href="/sharan19/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/sharan19/">Sharan&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/sharan19/about/">About Me</a><a class="page-link" href="/sharan19/search/">Search</a><a class="page-link" href="/sharan19/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">SweetViz</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-19T00:00:00-05:00" itemprop="datePublished">
+        Sep 19, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/sharanbabu19/sharan19/tree/master/_notebooks/2020-09-19-SweetViz- Automated EDA.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/sharan19/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/sharanbabu19/sharan19/master?filepath=_notebooks%2F2020-09-19-SweetViz-+Automated+EDA.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sharan19/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/sharanbabu19/sharan19/blob/master/_notebooks/2020-09-19-SweetViz- Automated EDA.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sharan19/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-09-19-SweetViz- Automated EDA.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Package is a collection of modules.</span>
+<span class="c1">## Library is a collection of Packages.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hi there. Today, we are going to see how to use SweetViz library in Python which will enable us to perform powerful Exploratory Data Analysis(EDA) on your dataset. So,let's get started.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, you will have to pip install this package as it is not an in-built Python package. You can do so from the command prompt or using !pip install sweetviz from jupyter notebook environment.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I will be using USA Housing data in this example.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install sweetviz
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Collecting sweetviz
+  Downloading https://files.pythonhosted.org/packages/8f/bd/f4454adfe1d3bbd04892d6172348ca215fa62d59fb09c1ac6b8a233341d3/sweetviz-1.0a7-py3-none-any.whl (323kB)
+Requirement already satisfied: scipy&gt;=1.3.2 in c:\users\sharan babu\anaconda3\lib\site-packages (from sweetviz) (1.4.1)
+Collecting tqdm&gt;=4.43.0 (from sweetviz)
+  Downloading https://files.pythonhosted.org/packages/f3/76/4697ce203a3d42b2ead61127b35e5fcc26bba9a35c03b32a2bd342a4c869/tqdm-4.46.1-py2.py3-none-any.whl (63kB)
+Collecting pandas!=1.0.0,!=1.0.1,!=1.0.2,&gt;=0.25.3 (from sweetviz)
+  Downloading https://files.pythonhosted.org/packages/1d/eb/b4f68f54ad287d583c9c3b3c77f865615f832f092810f20d2b44498cd06c/pandas-1.0.4-cp37-cp37m-win_amd64.whl (8.7MB)
+Collecting matplotlib&gt;=3.1.3 (from sweetviz)
+  Downloading https://files.pythonhosted.org/packages/b4/4d/8a2c06cb69935bb762738a8b9d5f8ce2a66be5a1410787839b71e146f000/matplotlib-3.2.1-cp37-cp37m-win_amd64.whl (9.2MB)
+Collecting importlib-resources&gt;=1.2.0 (from sweetviz)
+  Downloading https://files.pythonhosted.org/packages/b6/03/1865fdd49ec9a938f9f84b255d3d37863df9fbd18b48c1c3f761040cbf13/importlib_resources-2.0.0-py2.py3-none-any.whl
+Collecting jinja2&gt;=2.11.1 (from sweetviz)
+  Downloading https://files.pythonhosted.org/packages/30/9e/f663a2aa66a09d838042ae1a2c5659828bb9b41ea3a6efa20a20fd92b121/Jinja2-2.11.2-py2.py3-none-any.whl (125kB)
+Requirement already satisfied: numpy&gt;=1.16.0 in c:\users\sharan babu\anaconda3\lib\site-packages (from sweetviz) (1.16.4)
+Requirement already satisfied: pytz&gt;=2017.2 in c:\users\sharan babu\anaconda3\lib\site-packages (from pandas!=1.0.0,!=1.0.1,!=1.0.2,&gt;=0.25.3-&gt;sweetviz) (2019.1)
+Requirement already satisfied: python-dateutil&gt;=2.6.1 in c:\users\sharan babu\anaconda3\lib\site-packages (from pandas!=1.0.0,!=1.0.1,!=1.0.2,&gt;=0.25.3-&gt;sweetviz) (2.8.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\sharan babu\anaconda3\lib\site-packages (from matplotlib&gt;=3.1.3-&gt;sweetviz) (1.1.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in c:\users\sharan babu\anaconda3\lib\site-packages (from matplotlib&gt;=3.1.3-&gt;sweetviz) (2.4.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\sharan babu\anaconda3\lib\site-packages (from matplotlib&gt;=3.1.3-&gt;sweetviz) (0.10.0)
+Requirement already satisfied: zipp&gt;=0.4; python_version &lt; &#34;3.8&#34; in c:\users\sharan babu\anaconda3\lib\site-packages (from importlib-resources&gt;=1.2.0-&gt;sweetviz) (0.5.1)
+Requirement already satisfied: importlib-metadata; python_version &lt; &#34;3.8&#34; in c:\users\sharan babu\anaconda3\lib\site-packages (from importlib-resources&gt;=1.2.0-&gt;sweetviz) (0.17)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in c:\users\sharan babu\anaconda3\lib\site-packages (from jinja2&gt;=2.11.1-&gt;sweetviz) (1.1.1)
+Requirement already satisfied: six&gt;=1.5 in c:\users\sharan babu\anaconda3\lib\site-packages (from python-dateutil&gt;=2.6.1-&gt;pandas!=1.0.0,!=1.0.1,!=1.0.2,&gt;=0.25.3-&gt;sweetviz) (1.12.0)
+Requirement already satisfied: setuptools in c:\users\sharan babu\anaconda3\lib\site-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib&gt;=3.1.3-&gt;sweetviz) (41.0.1)
+Installing collected packages: tqdm, pandas, matplotlib, importlib-resources, jinja2, sweetviz
+  Found existing installation: tqdm 4.32.1
+    Uninstalling tqdm-4.32.1:
+      Successfully uninstalled tqdm-4.32.1
+  Found existing installation: pandas 0.24.2
+    Uninstalling pandas-0.24.2:
+      Successfully uninstalled pandas-0.24.2
+  Found existing installation: matplotlib 3.1.0
+    Uninstalling matplotlib-3.1.0:
+      Successfully uninstalled matplotlib-3.1.0
+  Found existing installation: Jinja2 2.10.1
+    Uninstalling Jinja2-2.10.1:
+      Successfully uninstalled Jinja2-2.10.1
+Successfully installed importlib-resources-2.0.0 jinja2-2.11.2 matplotlib-3.2.1 pandas-1.0.4 sweetviz-1.0a7 tqdm-4.46.1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sweetviz</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\Sharan Babu\Desktop\Data science\original\Refactored_Py_DS_ML_Bootcamp-master\11-Linear-Regression\USA_housing.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="c1"># In this dataset, price column is the target feature or dependent variable.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Avg. Area Income</th>
+      <th>Avg. Area House Age</th>
+      <th>Avg. Area Number of Rooms</th>
+      <th>Avg. Area Number of Bedrooms</th>
+      <th>Area Population</th>
+      <th>Price</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>79545.458574</td>
+      <td>5.682861</td>
+      <td>7.009188</td>
+      <td>4.09</td>
+      <td>23086.800503</td>
+      <td>1.059034e+06</td>
+      <td>208 Michael Ferry Apt. 674\nLaurabury, NE 3701...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79248.642455</td>
+      <td>6.002900</td>
+      <td>6.730821</td>
+      <td>3.09</td>
+      <td>40173.072174</td>
+      <td>1.505891e+06</td>
+      <td>188 Johnson Views Suite 079\nLake Kathleen, CA...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>61287.067179</td>
+      <td>5.865890</td>
+      <td>8.512727</td>
+      <td>5.13</td>
+      <td>36882.159400</td>
+      <td>1.058988e+06</td>
+      <td>9127 Elizabeth Stravenue\nDanieltown, WI 06482...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>63345.240046</td>
+      <td>7.188236</td>
+      <td>5.586729</td>
+      <td>3.26</td>
+      <td>34310.242831</td>
+      <td>1.260617e+06</td>
+      <td>USS Barnett\nFPO AP 44820</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>59982.197226</td>
+      <td>5.040555</td>
+      <td>7.839388</td>
+      <td>4.23</td>
+      <td>26354.109472</td>
+      <td>6.309435e+05</td>
+      <td>USNS Raymond\nFPO AE 09386</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Analyzing-a-DataFrame">Analyzing a DataFrame<a class="anchor-link" href="#Analyzing-a-DataFrame"> </a></h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">analysis</span> <span class="o">=</span> <span class="n">sweetviz</span><span class="o">.</span><span class="n">analyze</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="s2">&quot;EDA&quot;</span><span class="p">],</span> <span class="n">target_feat</span><span class="o">=</span><span class="s1">&#39;Price&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>:FEATURES DONE:                    |█████████████████████| [100%]   00:06  -&gt; (00:00 left)
+:PAIRWISE DONE:                    |█████████████████████| [100%]   00:00  -&gt; (00:00 left)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Creating Associations graph... DONE!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>sweetviz.dataframe_report.DataframeReport</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">analysis</span><span class="o">.</span><span class="n">show_html</span><span class="p">(</span><span class="s1">&#39;EDA.html&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is an amazing visualization library for your data as you instantly get various insights into your data which you could have done manually but would have taken a lot more time. <br />
+For numerical features, you get point plot, histogram, number of value missing, number of distinct values, quartile values and more useful information like skewness of the column.<br />
+For categorical features, along with the number of distinct and missing values, you 
+<br />
+Additionally, you also get the the 'Associations' or pair-wise correlations between 2 variables which is helpful for determining feature importance.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also use this library to comapre two DataFrames,say, your Training set and Test set and infer some meaning from the comparison.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">3000</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">3000</span><span class="p">:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Consider &#39;test&#39; to be the Test data.</span>
+<span class="c1"># The command to perform EDA comparison is:</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">sweetviz</span><span class="o">.</span><span class="n">compare</span><span class="p">([</span><span class="n">train</span><span class="p">,</span><span class="s2">&quot;Train&quot;</span><span class="p">],[</span><span class="n">test</span><span class="p">,</span><span class="s2">&quot;Test&quot;</span><span class="p">],</span> <span class="s2">&quot;Price&quot;</span><span class="p">)</span> <span class="c1"># Price is the target variable common to both tables</span>
+<span class="c1"># Now you can view your results.</span>
+<span class="n">analysis</span><span class="o">.</span><span class="n">show_html</span><span class="p">(</span><span class="s1">&#39;EDA2.html&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>:FEATURES DONE:                    |█████████████████████| [100%]   00:08  -&gt; (00:00 left)
+:PAIRWISE DONE:                    |█████████████████████| [100%]   00:00  -&gt; (00:00 left)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Creating Associations graph... DONE!
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, you can see comparison between the Train and Test dataset differentiate by different colors for all paramters discussed above.<br />
+Therefore, this is a handy module</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/sharan19/2020/09/19/SweetViz-Automated-EDA.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/sharan19/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/sharan19/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/sharan19/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal blog with focus on ML, DL and data science.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Sharan-Babu" title="Sharan-Babu"><svg class="svg-icon grey"><use xlink:href="/sharan19/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
