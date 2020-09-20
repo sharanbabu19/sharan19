@@ -56,6 +56,3 @@ I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Sci
 #### Check out my Github profile :point_down:
 
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
