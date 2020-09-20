@@ -6,8 +6,8 @@ permalink: /about/
 
 ### Hi there, I am Sharan 👋
 
-[![Website](https://img.shields.io/website?label=Portfolio&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://sharan-babu.github.io) &nbsp;
-[![Resume](https://img.shields.io/website?label=Resume&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://www.slideshare.net/BabuSharan1/sharan-babu-resume) &nbsp;
+[![Website](https://img.shields.io/website?label=Portfolio&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://sharan-babu.github.io) <br>
+[![Resume](https://img.shields.io/website?label=Resume&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://www.slideshare.net/BabuSharan1/sharan-babu-resume) <br>
 [![Certificates](https://img.shields.io/website?label=Certificates&style=for-the-badge&url=https%3A%2F%2Fcodestackr.com)](https://drive.google.com/drive/folders/1UW60hjMCKVmR_2KxrkwtZi_4AgwU2ars?usp=sharing)
 
 I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Science.   
