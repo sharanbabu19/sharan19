@@ -7,7 +7,7 @@ permalink: /about/
 ### Hi there, I am Sharan 👋
 I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Science.   
 - ⚡ Curiously exploring the depths of Deep Learning and SOTA models.
-- 🔭 I’m currently working on DeHazing Images.
+- :man_technologist: I’m currently working on DeHazing Images.
 - 🌱 Currently learning Deep Learning.
 - :smile: Looking to collaborate on ML/Data Science Projects.
 - 💬 Let's talk about Hackathons, Machine Learning or Computer Vision.
@@ -18,6 +18,5 @@ I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Sci
 :trophy: <b>BitHacks Hackathon</b> - Best Undergraduate Hack<br>
 :trophy: <b>Inter College Coding Competition</b> - Top 50
 <br>
-#### Check out my Github profile :point_down:
-
+#### Check out my <a href='https://sharan-babu.github.io'> Github</a> or <a href='https://www.linkedin.com/in/sharan-babu-39a757197/'>LinkedIn</a> profile
 
