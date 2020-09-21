@@ -18,5 +18,11 @@ I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Sci
 :trophy: <b>BitHacks Hackathon</b> - Best Undergraduate Hack<br>
 :trophy: <b>Inter College Coding Competition</b> - Top 50
 <br>
-#### Check out my <a href='https://sharan-babu.github.io'> Github</a> or <a href='https://www.linkedin.com/in/sharan-babu-39a757197/'>LinkedIn</a> profile
 
+### Know more:
+<a href='https://sharan-babu.github.io'> Github  </a>|
+<a href='https://www.linkedin.com/in/sharan-babu-39a757197/'>LinkedIn  </a>|
+<a href='https://sharan-babu.github.io'>Portfolio  </a>|
+<a href='https://medium.com/@sharanbabu2001'> Medium  </a>|
+<a href='https://www.slideshare.net/BabuSharan1/sharan-babu-resume'> Resume  </a>|
+<a href='https://www.youtube.com/channel/UC4Wg5P3wHNq9IrMxseafI6w/videos?view_as=subscriber'> Youtube</a>
