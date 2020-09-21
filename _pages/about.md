@@ -14,9 +14,9 @@ I am an aspiring Data Scientist pursuing an undergraduate degree in Computer Sci
 - :mailbox_with_mail:<i> Email</i>:  [sharanbabu2001@gmail.com](mailto:sharanbabu2001@gmail.com)
 
 ### Achievements:
-:trophy: <b>IBM-Nasscom National Hackathon</b> - Top 16<br>
-:trophy: <b>BitHacks Hackathon</b> - Best Undergraduate Hack<br>
-:trophy: <b>Inter College Coding Competition</b> - Top 50
+:trophy: IBM-Nasscom National Hackathon - Top 16<br>
+:trophy: BitHacks Hackathon - Best Undergraduate Hack<br>
+:trophy: Inter College Coding Competition - Top 50
 <br>
 
 ### Know more:
