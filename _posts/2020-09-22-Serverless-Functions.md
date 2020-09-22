@@ -1,3 +1,13 @@
+---
+title: "Serverless Functions"
+description: "Info about what Serverless functions are..."
+layout: post
+toc: false
+comments: true
+categories: [deployment, serverless functions]
+metadata_key1: metadata_value1
+metadata_key2: metadata_value2
+---
 # Deploying Code as Serverless functions
 <ul>
 <li> App code and dependencies are packaged into .zip files, with a a single entry point function.</li>
