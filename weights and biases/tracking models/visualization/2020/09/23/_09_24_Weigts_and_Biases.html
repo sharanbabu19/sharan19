@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Weights and Biases | Sharan’s Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Weights and Biases" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="WandB Tutorials" />
+<meta property="og:description" content="WandB Tutorials" />
+<link rel="canonical" href="https://sharanbabu19.github.io/sharan19/weights%20and%20biases/tracking%20models/visualization/2020/09/23/_09_24_Weigts_and_Biases.html" />
+<meta property="og:url" content="https://sharanbabu19.github.io/sharan19/weights%20and%20biases/tracking%20models/visualization/2020/09/23/_09_24_Weigts_and_Biases.html" />
+<meta property="og:site_name" content="Sharan’s Blog" />
+<meta property="og:image" content="https://sharanbabu19.github.io/sharan19/images/some_folder/your_image.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-23T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://sharanbabu19.github.io/sharan19/weights%20and%20biases/tracking%20models/visualization/2020/09/23/_09_24_Weigts_and_Biases.html","@type":"BlogPosting","headline":"Weights and Biases","dateModified":"2020-09-23T00:00:00-05:00","datePublished":"2020-09-23T00:00:00-05:00","image":"https://sharanbabu19.github.io/sharan19/images/some_folder/your_image.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://sharanbabu19.github.io/sharan19/weights%20and%20biases/tracking%20models/visualization/2020/09/23/_09_24_Weigts_and_Biases.html"},"description":"WandB Tutorials","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/sharan19/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sharanbabu19.github.io/sharan19/feed.xml" title="Sharan's Blog" /><link rel="shortcut icon" type="image/x-icon" href="/sharan19/images/favicon.ico"><link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/sharan19/">Sharan&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/sharan19/about/">About Me</a><a class="page-link" href="/sharan19/search/">Search</a><a class="page-link" href="/sharan19/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Weights and Biases</h1><p class="page-description">WandB Tutorials</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-23T00:00:00-05:00" itemprop="datePublished">
+        Sep 23, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/sharan19/categories/#weights and biases">weights and biases</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/sharan19/categories/#tracking models">tracking models</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/sharan19/categories/#visualization">visualization</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/sharanbabu19/sharan19/tree/master/_notebooks/2020_09_24_Weigts_and_Biases.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/sharan19/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/sharanbabu19/sharan19/master?filepath=_notebooks%2F2020_09_24_Weigts_and_Biases.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sharan19/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/sharanbabu19/sharan19/blob/master/_notebooks/2020_09_24_Weigts_and_Biases.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/sharan19/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020_09_24_Weigts_and_Biases.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Wandb-Basics">Wandb Basics<a class="anchor-link" href="#Wandb-Basics"> </a></h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install wandb
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wandb login
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre><span class="ansi-blue-intense-fg ansi-bold">wandb</span>: You can find your API key in your browser here: https://wandb.ai/authorize
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Paste an API key from your profile and hit enter: 
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Appending key for api.wandb.ai to your netrc file: /root/.netrc
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">wandb</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;my-first-project&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Currently logged in as: <span class="ansi-yellow-fg">sharan19</span> (use `wandb login --relogin` to force relogin)
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Tracking run with wandb version 0.10.2
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Run data is saved locally in wandb/run-20200924_005634-2y2hgq77
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Syncing run <span class="ansi-yellow-fg">devoted-vortex-1</span>
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+                Logging results to <a href="https://wandb.com" target="_blank">Weights &amp; Biases</a> <a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">(Documentation)</a>.<br />
+                Project page: <a href="https://wandb.ai/sharan19/my-first-project" target="_blank">https://wandb.ai/sharan19/my-first-project</a><br />
+                Run page: <a href="https://wandb.ai/sharan19/my-first-project/runs/2y2hgq77" target="_blank">https://wandb.ai/sharan19/my-first-project/runs/2y2hgq77</a><br />
+            
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<h1>Run(2y2hgq77)</h1><p></p><iframe src="https://wandb.ai/sharan19/my-first-project/runs/2y2hgq77" style="border:none;width:100%;height:400px"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">hidden_layer_size</span> <span class="o">=</span> <span class="mi">128</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">my_train_loop</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">wandb</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="s1">&#39;epoch&#39;</span><span class="p">:</span><span class="n">epoch</span><span class="p">,</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span><span class="n">loss</span><span class="p">})</span>
+
+<span class="c1"># Logging Images</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="s2">&quot;examples&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">wandb</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">numpy_array_or_pil</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s2">&quot;Label&quot;</span><span class="p">)]})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="For-logging-other-type-of-media,-visit:">For logging other type of media, visit:<a class="anchor-link" href="#For-logging-other-type-of-media,-visit:"> </a></h1><p><a href="https://docs.wandb.com/library/log">https://docs.wandb.com/library/log</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Saving Files</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;mymodel.h5&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;model.h5&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save all files that currently exist containing the substring &quot;ckpt&quot;</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;../logs/*ckpt*&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save any files starting with &quot;checkpoint&quot; as they&#39;re written to</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wandb</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">dir</span><span class="p">,</span> <span class="s2">&quot;checkpoint*&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Keras-Integration">Keras Integration<a class="anchor-link" href="#Keras-Integration"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">wandb</span>
+<span class="kn">from</span> <span class="nn">wandb.keras</span> <span class="kn">import</span> <span class="n">WandbCallback</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;hyper&quot;</span><span class="p">:</span> <span class="s2">&quot;parameter&quot;</span><span class="p">})</span>
+
+<span class="c1"># Magic</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span>  <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">),</span>
+          <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">WandbCallback</span><span class="p">()])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scikit-Learn-Integration">Scikit-Learn Integration<a class="anchor-link" href="#Scikit-Learn-Integration"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+
+<span class="c1"># Visualize all classifier plots</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_probas</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span>
+                                                         <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;SVC&#39;</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># All regression plots</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_regressor</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>  <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;Ridge&#39;</span><span class="p">)</span>
+
+<span class="c1"># All clustering plots</span>
+<span class="n">wandb</span><span class="o">.</span><span class="n">sklearn</span><span class="o">.</span><span class="n">plot_clusterer</span><span class="p">(</span><span class="n">kmeans</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">cluster_labels</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model_name</span><span class="o">=</span><span class="s1">&#39;KMeans&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Full-Keras-Example">Full Keras Example<a class="anchor-link" href="#Full-Keras-Example"> </a></h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">wandb</span>
+<span class="kn">from</span> <span class="nn">wandb.keras</span> <span class="kn">import</span> <span class="n">WandbCallback</span>
+
+<span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">fashion_mnist</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Conv2D</span><span class="p">,</span> <span class="n">MaxPooling2D</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Flatten</span>
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+<span class="kn">from</span> <span class="nn">keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">TensorBoard</span>
+
+<span class="c1"># Default values for hyper-parameters</span>
+<span class="n">defaults</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+    <span class="n">dropout</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">hidden_layer_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">layer_1_size</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">learn_rate</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">decay</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span>
+    <span class="n">momentum</span> <span class="o">=</span> <span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="c1"># Initialize a new wandb run and pass in the config object</span>
+<span class="c1"># wandb.init(anonymous=&#39;allow&#39;, project=&quot;kaggle&quot;, config=defaults)</span>
+
+<span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">&quot;visualize-models&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">defaults</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;neural_network&quot;</span><span class="p">)</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">wandb</span><span class="o">.</span><span class="n">config</span>
+
+<span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+<span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;T-shirt/top&quot;</span><span class="p">,</span><span class="s2">&quot;Trouser&quot;</span><span class="p">,</span><span class="s2">&quot;Pullover&quot;</span><span class="p">,</span><span class="s2">&quot;Dress&quot;</span><span class="p">,</span><span class="s2">&quot;Coat&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Sandal&quot;</span><span class="p">,</span><span class="s2">&quot;Shirt&quot;</span><span class="p">,</span><span class="s2">&quot;Sneaker&quot;</span><span class="p">,</span><span class="s2">&quot;Bag&quot;</span><span class="p">,</span><span class="s2">&quot;Ankle boot&quot;</span><span class="p">]</span>
+
+<span class="n">img_width</span><span class="o">=</span><span class="mi">28</span>
+<span class="n">img_height</span><span class="o">=</span><span class="mi">28</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">X_train</span> <span class="o">/=</span> <span class="mf">255.</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">/=</span> <span class="mf">255.</span>
+
+<span class="c1">#reshape input data</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[:</span><span class="mi">10000</span><span class="p">]</span>
+
+<span class="c1"># one hot encode outputs</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_train</span><span class="p">)[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_test</span><span class="p">)[:</span><span class="mi">10000</span><span class="p">]</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># build model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Conv2D</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">layer_1_size</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>
+                            <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">img_width</span><span class="p">,</span> <span class="n">img_height</span><span class="p">,</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">MaxPooling2D</span><span class="p">(</span><span class="n">pool_size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">dropout</span><span class="p">))</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Flatten</span><span class="p">())</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">learn_rate</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">decay</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">momentum</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Waiting for W&amp;B process to finish, PID 211
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Program ended successfully.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-blue-intense-fg ansi-bold">wandb</span>:                                                                                
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Find user logs for this run at: wandb/run-20200924_005634-2y2hgq77/logs/debug.log
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Find internal logs for this run at: wandb/run-20200924_005634-2y2hgq77/logs/debug-internal.log
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Synced 5 W&amp;B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: 
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Synced <span class="ansi-yellow-fg">devoted-vortex-1</span>: <span class="ansi-blue-fg">https://wandb.ai/sharan19/my-first-project/runs/2y2hgq77</span>
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Tracking run with wandb version 0.10.2
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Run data is saved locally in wandb/run-20200924_013038-erckq5ar
+<span class="ansi-blue-intense-fg ansi-bold">wandb</span>: Syncing run <span class="ansi-yellow-fg">neural_network</span>
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+
+                Logging results to <a href="https://wandb.com" target="_blank">Weights &amp; Biases</a> <a href="https://docs.wandb.com/integrations/jupyter.html" target="_blank">(Documentation)</a>.<br />
+                Project page: <a href="https://wandb.ai/sharan19/visualize-models" target="_blank">https://wandb.ai/sharan19/visualize-models</a><br />
+                Run page: <a href="https://wandb.ai/sharan19/visualize-models/runs/erckq5ar" target="_blank">https://wandb.ai/sharan19/visualize-models/runs/erckq5ar</a><br />
+            
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">wandb</span>
+# Add WandbCallback() to the fit function
+model.fit(X_train, y_train,  validation_data=(X_test, y_test), epochs=config.epochs,
+    callbacks=[WandbCallback(data_type=&quot;image&quot;, labels=labels)])
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea ">
+<iframe src="https://wandb.ai/sharan19/visualize-models/runs/erckq5ar?jupyter=true" style="border:none;width:100%;height:420px">
+                </iframe>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/5
+313/313 [==============================] - 7s 23ms/step - loss: 0.7694 - accuracy: 0.7219 - val_loss: 0.5558 - val_accuracy: 0.8071
+Epoch 2/5
+313/313 [==============================] - 8s 24ms/step - loss: 0.4964 - accuracy: 0.8257 - val_loss: 0.4829 - val_accuracy: 0.8282
+Epoch 3/5
+313/313 [==============================] - 8s 24ms/step - loss: 0.4345 - accuracy: 0.8500 - val_loss: 0.4887 - val_accuracy: 0.8252
+Epoch 4/5
+313/313 [==============================] - 8s 24ms/step - loss: 0.3952 - accuracy: 0.8610 - val_loss: 0.4090 - val_accuracy: 0.8578
+Epoch 5/5
+313/313 [==============================] - 8s 24ms/step - loss: 0.3692 - accuracy: 0.8698 - val_loss: 0.4131 - val_accuracy: 0.8554
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tensorflow.python.keras.callbacks.History at 0x7fc668ae2cc0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>wandb agent sharan19/visualize-models/q3e69h7k
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sweep_config</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;My Sweep&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;grid&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;parameter1&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">sweep_id</span> <span class="o">=</span> <span class="n">wandb</span><span class="o">.</span><span class="n">sweep</span><span class="p">(</span><span class="n">sweep_config</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Create sweep with ID: cpttnyj5
+Sweep URL: https://wandb.ai/sharan19/uncategorized/sweeps/cpttnyj5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wandb</span><span class="o">.</span><span class="n">agent</span><span class="p">(</span><span class="n">sweep_id</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For full example of how hyperparameter optimization with sweeps work, visit:
+<a href="https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/notebook.ipynb">https://github.com/wandb/examples/blob/master/examples/wandb-sweeps/sweeps-python/notebook.ipynb</a>
+<br />And<br />
+<a href="https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt#scrollTo=xftEwKyuaJ5q">https://colab.research.google.com/drive/181GCGp36_75C2zm7WLxr9U2QjMXXoibt#scrollTo=xftEwKyuaJ5q</a></p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="sharanbabu19/sharan19"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/sharan19/weights%20and%20biases/tracking%20models/visualization/2020/09/23/_09_24_Weigts_and_Biases.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/sharan19/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/sharan19/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/sharan19/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Personal blog with focus on ML, DL and data science.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/Sharan-Babu" title="Sharan-Babu"><svg class="svg-icon grey"><use xlink:href="/sharan19/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
