@@ -1,4 +1,254 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://sharanbabu19.github.io/sharan19/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sharanbabu19.github.io/sharan19/" rel="alternate" type="text/html" /><updated>2020-10-01T07:51:07-05:00</updated><id>https://sharanbabu19.github.io/sharan19/feed.xml</id><title type="html">Sharan’s Blog</title><subtitle>Personal blog with focus on ML, DL and data science.</subtitle><entry><title type="html">GANs</title><link href="https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks.html" rel="alternate" type="text/html" title="GANs" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks</id><content type="html" xml:base="https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks.html">&lt;!--
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://sharanbabu19.github.io/sharan19/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sharanbabu19.github.io/sharan19/" rel="alternate" type="text/html" /><updated>2020-10-04T01:10:40-05:00</updated><id>https://sharanbabu19.github.io/sharan19/feed.xml</id><title type="html">Sharan’s Blog</title><subtitle>Personal blog with focus on ML, DL and data science.</subtitle><entry><title type="html">Html (5q9) Bts</title><link href="https://sharanbabu19.github.io/sharan19/2020/10/04/html-(5Q9)-bts.html" rel="alternate" type="text/html" title="Html (5q9) Bts" /><published>2020-10-04T00:00:00-05:00</published><updated>2020-10-04T00:00:00-05:00</updated><id>https://sharanbabu19.github.io/sharan19/2020/10/04/html-(5Q9)-bts</id><content type="html" xml:base="https://sharanbabu19.github.io/sharan19/2020/10/04/html-(5Q9)-bts.html">&lt;p&gt;&lt;strong&gt;&lt;span class=&quot;underline&quot;&gt;Scripting in HTML&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1) &lt;em&gt;Basic Program&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;title&amp;gt; My first Js program&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;center&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;document.write(“Welcome to the browser using Js”;)&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/center&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;2) &lt;em&gt;Addition&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Add with Js&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;center&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;var a,b,c; var string;&lt;/p&gt;
+
+&lt;p&gt;a=2; b=3; c=a+b;&lt;/p&gt;
+
+&lt;p&gt;string = “the result=”;&lt;/p&gt;
+
+&lt;p&gt;document.write(“Addition result”+”&amp;lt;br&amp;gt;”);&lt;/p&gt;
+
+&lt;p&gt;document.write(c);&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;3) &lt;em&gt;Subtraction&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Subtract with Js&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;center&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;var a,b,c; var string;&lt;/p&gt;
+
+&lt;p&gt;a=3; b=3; c=a-b;&lt;/p&gt;
+
+&lt;p&gt;string = “the result=”;&lt;/p&gt;
+
+&lt;p&gt;document.write(“Subtraction result”+”&amp;lt;br&amp;gt;”);&lt;/p&gt;
+
+&lt;p&gt;document.write(c);&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;4) &lt;em&gt;Largest Number&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Finding Largest Number&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;center&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;var a,b,c;&lt;/p&gt;
+
+&lt;p&gt;a=10; b=20;c=30;&lt;/p&gt;
+
+&lt;p&gt;if(a&amp;gt;b)&lt;/p&gt;
+
+&lt;p&gt;{if(a&amp;gt;c){document.write(“&amp;lt;h1&amp;gt; a is the largest number&amp;lt;/h1&amp;gt;;&lt;/p&gt;
+
+&lt;p&gt;else&lt;/p&gt;
+
+&lt;p&gt;{document.write(“&amp;lt;h2&amp;gt; c is the largest number &amp;lt;/h2&amp;gt;”);}}&lt;/p&gt;
+
+&lt;p&gt;else&lt;/p&gt;
+
+&lt;p&gt;{if (b&amp;gt;0)&lt;/p&gt;
+
+&lt;p&gt;{document.write(“&amp;lt;h2&amp;gt; b is the largest number &amp;lt;/h2&amp;gt;”);}&lt;/p&gt;
+
+&lt;p&gt;Else&lt;/p&gt;
+
+&lt;p&gt;{document.write(“&amp;lt;h2&amp;gt; c is the largest number &amp;lt;/h2&amp;gt;”);}}&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;5) &lt;em&gt;Table of Squared numbers&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Squaring Numbers&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;table border=1 align=”center”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;th&amp;gt; Number &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Square &amp;lt;/th&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;var i=1;&lt;/p&gt;
+
+&lt;p&gt;while(i&amp;lt;=10)&lt;/p&gt;
+
+&lt;p&gt;{document.write(“&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;” +i+”&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;” + (i*i) + “&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;”);&lt;/p&gt;
+
+&lt;p&gt;i++;}&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;6) &lt;em&gt;Table of Squared numbers with &lt;strong&gt;For Loop&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Squaring Numbers with For Loop&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;table border=1 align=”center”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;th&amp;gt; Number &amp;lt;/th&amp;gt; &amp;lt;th&amp;gt; Square &amp;lt;/th&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type=”text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;var i;&lt;/p&gt;
+
+&lt;p&gt;for(i=1; i&amp;lt;=10; i++)&lt;/p&gt;
+
+&lt;p&gt;{document.write(“&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;” +i+”&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;” + (i*i) + “&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;”);}&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;7) &lt;em&gt;Switch Case Js scripting in HTML&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; Using Switch in Js &amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type= “text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;D = new Data();&lt;/p&gt;
+
+&lt;p&gt;Ch = d.getDays();&lt;/p&gt;
+
+&lt;p&gt;Switch(ch)&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;p&gt;case 1: document.write(“Sunday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 2: document.write(“Monday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 3: document.write(“Tuesday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 4: document.write(“Wednesday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 5: document.write(“Thursday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 6: document.write(“Friday”);&lt;/p&gt;
+
+&lt;p&gt;break;&lt;/p&gt;
+
+&lt;p&gt;case 7: document.write(“Saturday”);&lt;/p&gt;
+
+&lt;p&gt;break;}&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;8) Array&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;html&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt; arrays &amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;script type= “text/javascript”&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;A = new Array(5);&lt;/p&gt;
+
+&lt;p&gt;for(i=0; i&amp;lt;5; i++)&lt;/p&gt;
+
+&lt;p&gt;{ A[i] = i;&lt;/p&gt;
+
+&lt;p&gt;document.write(‘another way of initialization’);&lt;/p&gt;
+
+&lt;p&gt;b = new Array(22, 43, 56, 74, 84);&lt;/p&gt;
+
+&lt;p&gt;for(i=0;i&amp;lt;5;i++)&lt;/p&gt;
+
+&lt;p&gt;{&lt;/p&gt;
+
+&lt;p&gt;document.write(b[i] + “&amp;lt;br&amp;gt;”);&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;document.write(“yet another way of initialization”);&lt;/p&gt;
+
+&lt;p&gt;var c= new Array(8, 16, 24, 32, 40);&lt;/p&gt;
+
+&lt;p&gt;for(i&amp;lt;0;i&amp;lt;5;i++) {&lt;/p&gt;
+
+&lt;p&gt;document.write(c[i]); }&lt;/p&gt;
+
+&lt;p&gt;document.write(“finish”);&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/script&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/body&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;/html&amp;gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Scripting in HTML</summary></entry><entry><title type="html">GANs</title><link href="https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks.html" rel="alternate" type="text/html" title="GANs" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks</id><content type="html" xml:base="https://sharanbabu19.github.io/sharan19/gans/mnist/tensorflow/2020/10/01/Generative-Adversarial-Networks.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
